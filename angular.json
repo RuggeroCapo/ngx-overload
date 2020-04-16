@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-overload": {
+    "demo": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-overload",
+            "outputPath": "dist/demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-overload:build"
+            "browserTarget": "demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-overload:build:production"
+              "browserTarget": "demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-overload:build"
+            "browserTarget": "demo:build"
           }
         },
         "test": {
@@ -110,18 +110,58 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-overload:serve"
+            "devServerTarget": "demo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ngx-overload:serve:production"
+              "devServerTarget": "demo:serve:production"
             }
+          }
+        }
+      }
+    },
+    "ngx-overload": {
+      "projectType": "library",
+      "root": "projects/ngx-overload",
+      "sourceRoot": "projects/ngx-overload/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-overload/tsconfig.lib.json",
+            "project": "projects/ngx-overload/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-overload/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-overload/src/test.ts",
+            "tsConfig": "projects/ngx-overload/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-overload/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-overload/tsconfig.lib.json",
+              "projects/ngx-overload/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "ngx-overload",
+  "defaultProject": "demo",
   "cli": {
     "analytics": "bb20b73c-7320-4dec-89a5-d20e660d94be"
   }

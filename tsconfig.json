@@ -18,7 +18,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-overload": [
+        "dist/ngx-overload/ngx-overload",
+        "dist/ngx-overload"
+      ]
+    }
   },
   "include": [
     "src/**/*.ts",

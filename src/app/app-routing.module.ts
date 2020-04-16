@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {OverloadStrategyService} from '../../projects/libs/src/lib/overload-strategy/strategy/overload-strategy.service';
+import {OverloadStrategy} from '../../projects/ngx-overload/src/lib/overload-strategy/strategy/overload-strategy.service';
 
 const appRoutes: Routes = [
   {
@@ -14,7 +14,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(appRoutes, {
       enableTracing: true,
-      preloadingStrategy: OverloadStrategyService,
+      preloadingStrategy: OverloadStrategy,
     }),
   ],
   exports: [RouterModule],

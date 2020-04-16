@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {OverloadStrategyModule} from '../../projects/libs/src/lib/overload-strategy/overload-strategy.module';
+import {OverloadStrategyModule} from '../../projects/ngx-overload/src/lib/overload-strategy/overload-strategy.module';
 
 @NgModule({
   declarations: [AppComponent],
