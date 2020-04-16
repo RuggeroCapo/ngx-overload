@@ -1,0 +1,5 @@
+*.js
+main.ts
+polyfills.ts
+test.ts
+e2e/*
