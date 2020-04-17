@@ -15,7 +15,7 @@ export class PreloadOnOverDirective implements OnInit {
    */
   @Input() debounceTime = 100;
 
-  #timer: unknown;
+  private timer: unknown;
 
   constructor(
     private triggerPreloadService: TriggerPreloadService,
@@ -24,14 +24,11 @@ export class PreloadOnOverDirective implements OnInit {
   }
 
   @HostListener('mouseover') mouseover() {
-    this.#timer = setTimeout(
-      () => this.triggerPreloadService.startPreload(this.path),
-      this.debounceTime
-    );
+    this.timer = setTimeout(() => this.mouseOverCallback(), this.debounceTime);
   }
 
   @HostListener('mouseleave') mouseleave() {
-    clearTimeout(this.#timer as number);
+    clearTimeout(this.timer as number);
   }
 
   ngOnInit(): void {
@@ -39,5 +36,9 @@ export class PreloadOnOverDirective implements OnInit {
       this.elementRef.nativeElement?.attributes['ng-reflect-router-link']?.value
       || this.elementRef.nativeElement.getAttribute('href');
     this.path = this.path === '' ? routerPath : this.path;
+  }
+
+  mouseOverCallback(): void {
+    this.triggerPreloadService.startPreload(this.path);
   }
 }

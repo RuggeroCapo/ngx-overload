@@ -7,7 +7,7 @@ import {EMPTY, Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class OverloadStrategyService implements PreloadingStrategy {
+export class OverloadStrategy implements PreloadingStrategy {
   private preloadOnDemand$: Observable<string>;
 
   constructor(private preloadOnDemandService: TriggerPreloadService) {
