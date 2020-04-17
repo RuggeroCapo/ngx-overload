@@ -1,0 +1,36 @@
+{
+  "extends": "./node_modules/gts/tsconfig-google.json",
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "baseUrl": "./src",
+    "module": "esnext",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "ngx-overload": [
+        "dist/ngx-overload/ngx-overload",
+        "dist/ngx-overload"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts"
+  ],
+  "angularCompilerOptions": {
+    "enableIvy": false
+  }
+}
