@@ -8,7 +8,7 @@ import {EMPTY, Observable} from 'rxjs';
   providedIn: 'root',
 })
 export class OverloadStrategy implements PreloadingStrategy {
-  private preloadOnDemand$: Observable<string>;
+  preloadOnDemand$: Observable<string>;
 
   constructor(private preloadOnDemandService: TriggerPreloadService) {
     this.preloadOnDemand$ = this.preloadOnDemandService.preloadTrigger;
@@ -33,7 +33,7 @@ export class OverloadStrategy implements PreloadingStrategy {
    * @param route
    * @param routePath
    */
-  private preloadCheck(route: Route, routePath: string): boolean {
+  preloadCheck(route: Route, routePath: string): boolean {
     return [route.path, '*'].includes(routePath);
   }
 }

@@ -1,7 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 
-export const NO_PATH_ERROR = new Error('routePath is undefined or empty, define a route to enable preload');
+export const NO_PATH_ERROR = new Error(
+  'routePath is undefined or empty, define a route to enable preload'
+);
 
 @Injectable({
   providedIn: 'root',
