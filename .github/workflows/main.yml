@@ -40,7 +40,6 @@ jobs:
           npm run clean
           npm run test
           npm run build
-          ng test ngx-overload --codeCoverage     
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v1.1.0
         with:
