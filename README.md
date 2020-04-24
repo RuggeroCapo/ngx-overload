@@ -1,4 +1,7 @@
 # ngx-overload
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bb364a22d5f844d2a0c69d6414c8ab86)](https://app.codacy.com/manual/RuggeroCapo/ngx-overload?utm_source=github.com&utm_medium=referral&utm_content=RuggeroCapo/ngx-overload&utm_campaign=Badge_Grade_Dashboard)
+
 > Faster page-loads by prefetching lazy modules when mouse is over a link a link
 
 ## How it works
