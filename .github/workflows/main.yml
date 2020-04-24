@@ -44,4 +44,4 @@ jobs:
         uses: coverallsapp/github-action@v1.1.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: coverage/ngx-overload
+          path-to-lcov: coverage/ngx-overload/lcov.info
