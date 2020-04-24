@@ -40,8 +40,8 @@ jobs:
           npm run clean
           npm run test
           npm run build
-      - name: Coveralls GitHub Action
-        uses: coverallsapp/github-action@v1.1.0
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: coverage/ngx-overload/lcov.info
+#      - name: Coveralls GitHub Action
+#        uses: coverallsapp/github-action@v1.1.0
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
+#          path-to-lcov: coverage/ngx-overload/lcov.info
