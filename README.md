@@ -1,6 +1,12 @@
 # ngx-overload
 > Faster page-loads by prefetching lazy modules when mouse is over a link a link
 
+[![TypeScript Style Guide](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
+![David](https://img.shields.io/david/dev/RuggeroCapo/ngx-overload)
+![CI](https://github.com/RuggeroCapo/ngx-overload/workflows/CI/badge.svg)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bb364a22d5f844d2a0c69d6414c8ab86)](https://app.codacy.com/manual/RuggeroCapo/ngx-overload/dashboard)
+[![Coverage Status](https://coveralls.io/repos/github/RuggeroCapo/ngx-overload/badge.svg?branch=master)](https://coveralls.io/github/RuggeroCapo/ngx-overload?branch=master)
+
 ## How it works
 
 NGX-Overload attempts to make navigations to pages load faster. It:
