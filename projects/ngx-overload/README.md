@@ -1,24 +1,107 @@
-# NgxOverload
+# ngx-overload
+> Faster page-loads by prefetching lazy modules when mouse is over a link a link
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+[![TypeScript Style Guide](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
+![David](https://img.shields.io/david/dev/RuggeroCapo/ngx-overload)
+![CI](https://github.com/RuggeroCapo/ngx-overload/workflows/CI/badge.svg)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bb364a22d5f844d2a0c69d6414c8ab86)](https://app.codacy.com/manual/RuggeroCapo/ngx-overload/dashboard)
+[![Coverage Status](https://coveralls.io/repos/github/RuggeroCapo/ngx-overload/badge.svg?branch=master)](https://coveralls.io/github/RuggeroCapo/ngx-overload?branch=master)
 
-## Code scaffolding
+## How it works
 
-Run `ng generate component component-name --project ngx-overload` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-overload`.
-> Note: Don't forget to add `--project ngx-overload` or else it will be added to the default project in your `angular.json` file. 
+NGX-Overload attempts to make navigations to pages load faster. It:
 
-## Build
+* **Detect angular router links**
+* **Checks if the user isn't on a slow connection** (using `navigator.connection.effectiveType`) or has data-saver enabled (using `navigator.connection.saveData`) **TODO**
+* **Prevent unnecessary loading using a customizable debounce stategy**
 
-Run `ng build ngx-overload` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Why
 
-## Publishing
+This project aims to be a simple solution to improve performance for lazy loaded module in Angular
 
-After building your library with `ng build ngx-overload`, go to the dist folder `cd dist/ngx-overload` and run `npm publish`.
+### Installation
 
-## Running unit tests
+The library is created with [Angular v9](https://angular.io/)
+To install simply run
 
-Run `ng test ngx-overload` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```sh
+npm install ngx-overload
+```
 
-## Further help
+### Usage
+Once installed follow these step for a quickstart
+1. Import the OverloadStrategyModule
+``` typescript
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    ...
+    AppRoutingModule,
+    ...
+    OverloadStrategyModule],
+    providers: [],
+    bootstrap: [AppComponent]
+})
+```
+2. Define the ngx overload strategy in the lazy-router module
+``` typescript
+    RouterModule.forRoot(appRoutes, {
+      preloadingStrategy: OverloadStrategy,
+    })
+```
+3. Add the ngxPreloadOnOver directive to the navigation links 
+```html
+<a [routerLink]="'example'" appPreloadOnOver>Example link</a>
+```
+For example, you can initialize after the `load` event fires:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```html
+<script>
+window.addEventListener('load', () =>{
+  quicklink.listen();
+});
+</script>
+```
+
+## Inputs
+
+### customPath
+
+The path for the route to be loaded is automatically retrived using the angular routerLink but can be also defined using this input
+
+#### debounceTime
+Type: `number`<br>
+Default: `100`
+
+Wait n seconds before trigger the prefetch
+
+## Version Support
+
+This library was generated with Angular CLI version 9.1.1. 
+
+## Demo
+
+## Contributing
+
+Want to contribute to Web API Confluence? Great!
+
+### Filing issues and contributing code
+
+Please use GitHub’s issue tracker and pull request features.
+
+### Running locally
+
+1. Clone this repository.
+
+2. Install: `npm install`
+
+> test: `ng test ngx-overload`
+
+> serve: `ng serve`
+
+> build: `ng build ngx-overload`
+
+## License
+
+Licensed under the GPL-3.0 license.
